@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-bar-menu></app-bar-menu>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="row" style="margin-left: 30px">
+
+  <div class="col-sm-1"></div>
+
+
+  <div class="col-sm-5">
+    <div class="card">
+      <div class="card-header" style="font-weight: bold">Datos de Cuenta</div>
+      <div class="card-body">
+        <!--<h6 class="card-title">Datos del usuario</h6>-->
+        <p class="card-text">Nombre: Marcelo</p>
+        <p class="card-text">Apellido: Nieto</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-sm-5">
+    <button type="button" (click)="completarOrden()" [routerLink]="'[/home]'" class="btn btn-primary">Completar Orden
+    </button>
+  </div>
+
+  <div class="col-sm-1"></div>
+</div>
+
+<br>
+
+<div class="row" style="margin-left: 30px">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-5">
+    <div class="card">
+      <div class="card-header" style="font-weight: bold">Datos de Facturacion</div>
+      <div class="card-body">
+        <!--<h6 class="card-title">Cliente</h6>-->
+        <p class="card-text">Nombre: {{datosFactura.nombre}}</p>
+        <p class="card-text">Apellido: {{datosFactura.apellido}}</p>
+        <p class="card-text">Correo: {{datosFactura.correo}}</p>
+        <p class="card-text">Direccion: {{datosFactura.direccion}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-5">
+    <!--<app-modal-datos></app-modal-datos>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Editar Datos</button>-->
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+              aria-expanded="false" aria-controls="collapseExample">
+        Editar Datos
+      </button>
+    <app-modal-datos-dos></app-modal-datos-dos>
+
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-12">
+    <br>
+    <h2 style="padding-left: 40px">Peliculas:</h2>
+  </div>
+</div>
+
+<div class="row" style="margin-left: 30px">
+  <div class="col-sm4">
+    <div *ngFor="let info of listaItems; let indice = index" style="margin-right: 20px; margin-top: 20px">
+      <div class="card" style="width: 250px">
+        <img class="card-img-top" src={{info.imagen}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{info.nombre}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Sinopsis: {{info.sinopsis}}</h6>
+          <button type="button" (click)="eliminarItem(indice, info.id)" class="btn btn-primary">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row" style="margin-left: 30px">
+  <div class="col-sm-2" style="margin-left: 1000px; margin-top: 20px">
+    <h5 class="card-title">Total: {{total}}</h5>
+    <!--<div class="card" style="width: 250px">
+      <div class="card-body">
+
+      </div>
+    </div>-->
+  </div>
+</div>

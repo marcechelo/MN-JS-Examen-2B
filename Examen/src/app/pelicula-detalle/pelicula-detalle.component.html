@@ -1,0 +1,25 @@
+<div class="row">
+
+  <div class="col-sm-12">
+    <br>
+    <h2 id="tituloJuego" style="padding-left: 40px">Peliculas</h2>
+  </div>
+
+</div>
+
+<div class="row" style="margin-left: 20px">
+
+  <div class="col-sm-2" *ngFor="let info of peliculas" style="margin-right: 20px; margin-top: 20px">
+    <div class="card" style="width: 250px">
+      <img class="card-img-top" src={{info.imagen}} alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{info.nombre}}</h4>
+        <h6>Sinopsis: {{info.sinopsis}}</h6>
+        <h6>Fecha de Lanzamiento: {{info.anioLanzamiento}}</h6>
+
+      </div>
+      <button type="button" (click)="limpiarLista()" [routerLink]="['/actor', identificador(info.actor), 'pelicula', info.id]" class="btn btn-primary">Detalle</button>
+    </div>
+
+  </div>
+</div>
